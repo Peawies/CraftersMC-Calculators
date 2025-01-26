@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Emerald Armor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Calculator | Emerald Armor</h1>
+            <button id="themeToggle">🌑</button>
+        </div>
+        <label for="emeralds">What is your Emerald <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.3em; vertical-align: middle;"> collection?</label>
+        <input type="number" id="emeralds" placeholder="Enter number" min="0">
+        <button onclick="calculateBonus()">Calculate</button>
+        <div class="result" id="result">
+            Base statistics: +0 Health <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">, +270 Defense <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;">
+        </div>
+    </div>
+    <div class="container info-box">
+        <center><h2>All Calculators</h1></center>
+        <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+    </div>
+    <script>
+    function calculateBonus() {
+        const maxEmeralds = 1050000;
+        let emeralds = parseInt(document.getElementById('emeralds').value) || 0;
+    
+        let warningMessage = "";
+        if (emeralds > maxEmeralds) {
+            warningMessage = `The maximum is +350 stat bonus (1,050,000x Emerald <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.3em; vertical-align: middle;">).`;
+            emeralds = maxEmeralds;
+        }
+    
+        const bonus = Math.floor(emeralds / 3000);
+        const baseHealth = 0;
+        const baseDefense = 270;
+        const bonusHealth = bonus; // +1 Health per 3000 Emeralds
+        const bonusDefense = bonus; // +1 Defense per 3000 Emeralds
+    
+        const totalHealth = baseHealth + bonusHealth;
+        const totalDefense = baseDefense + bonusDefense;
+    
+        document.getElementById('result').innerHTML = `
+            Base statistics: +${baseHealth} Health <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">, +${baseDefense} Defense <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;"><br>
+            From bonus: +${bonusHealth} Health <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">, +${bonusDefense} Defense <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;"><br>
+            Result: +${totalHealth} Health <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">, +${totalDefense} Defense <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;">
+        `;
+    
+        if (warningMessage) {
+            document.getElementById('result').innerHTML += `<br><span style="color: red;">${warningMessage}</span>`;
+        }
+    }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+    </script>
+</body>
+</html>

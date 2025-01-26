@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator | Zombie Bulwark</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <div class="container">
+    <div class="header">
+        <h1>Calculator | Zombie Bulwark</h1>
+        <button id="themeToggle">🌑</button>
+    </div>
+    <label for="zombies">How many zombies you've killed before? You probably don't know this and will enter a random number anyways.</label>
+    <input type="number" id="zombies" placeholder="Enter number" min="0">
+    <button onclick="calculateDef()">Calculate</button>
+    <div class="result" id="result"></div>
+  </div>
+  <div class="container info-box">
+    <center><h2>All Calculators</h1></center>
+    <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+</div>
+  <script>
+    function calculateDef() {
+        const maxZombie = 500000;
+        let zombies = parseInt(document.getElementById('zombies').value) || 0;
+    
+        let warningMessage = "";
+        if (zombies > maxZombie) {
+            warningMessage = `The maximum is +315 Defense bonus (500,000x Zombie).`;
+            zombies = maxZombie;
+        }
+
+      let defBonus = 0;
+
+      if (zombies >= 500000) defBonus = 315;
+      else if (zombies >= 200000) defBonus = 310;
+      else if (zombies >= 100000) defBonus = 300;
+      else if (zombies >= 50000) defBonus = 280;
+      else if (zombies >= 25000) defBonus = 260;
+      else if (zombies >= 15000) defBonus = 240;
+      else if (zombies >= 10000) defBonus = 220;
+      else if (zombies >= 7500) defBonus = 200;
+      else if (zombies >= 5000) defBonus = 180;
+      else if (zombies >= 3000) defBonus = 150;
+      else if (zombies >= 2000) defBonus = 120;
+      else if (zombies >= 1000) defBonus = 90;
+      else if (zombies >= 300) defBonus = 50;
+      else if (zombies >= 50) defBonus = 20;
+      else defBonus = 0;
+
+      const fullDefBonus = defBonus * 3;
+
+      document.getElementById('result').innerHTML = `Bonus per piece: +${defBonus} <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;"><br>Total bonus for full set (3 pieces): +${fullDefBonus} <img src="images/defense.png" style="height: 1.1em; vertical-align: middle;">`;
+
+        if (warningMessage) {
+            document.getElementById('result').innerHTML += `<br><span style="color: red;">${warningMessage}</span>`;
+        }
+    }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+  </script>
+</body>
+</html>

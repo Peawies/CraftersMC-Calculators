@@ -1,0 +1,182 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f1f2f6;
+    color: #7182a7;
+}
+body.dark-theme {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #191919;
+    color: #d2d2d2;
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+body.dark-theme .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #242424;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#blazeRods, #emeralds, #coins, #currentLevel, #targetLevel, #enchantingLevel, #currentXP, #wantedLevel, #oakLog, #spruceLog, #birchLog, #darkOakLog, #acaciaLog, #jungleLog, #zombies {
+    width: 100%; /* Ensures the input takes the full width of its container */
+    max-width: 378px; /* Prevents the input from becoming too wide */
+  }
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+#themeToggle {
+    padding: 0px 0px;   /* Decrease padding to reduce the button size */
+    font-size: 0.8em;    /* Decrease font size for smaller text */
+    width: 30px;         /* Set a specific width for the button */
+    height: 30px;        /* Set a specific height for the button */
+    margin-top: 18px;
+    background-color: #5bbd60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#themeToggle:hover {
+    background-color: #35963a;
+}
+
+h1 {
+    text-align: center;
+    color: #7182a7;
+}
+body.dark-theme h1 {
+    text-align: center;
+    color: #d2d2d2;
+}
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5bbd60;
+    color: white;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #35963a;
+}
+.result {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Infobox styling */
+
+.info-box {
+    background-color: #ffffff;
+    margin-top: 20px; /* Adds space above the infobox */
+    padding: 10px;
+    border-radius: 5px;
+    color: #7182a7;
+    font-size: 14px;
+    line-height: 1.6;
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Add a vertical scroll bar when content overflows */
+}
+body.dark-theme .info-box {
+    background-color: #242424;
+    margin-top: 20px; /* Adds space above the infobox */
+    padding: 10px;
+    border-radius: 5px;
+    color: #d2d2d2;
+    font-size: 14px;
+    line-height: 1.6;
+    max-height: 200px; /* Set a maximum height */
+    overflow-y: auto; /* Add a vertical scroll bar when content overflows */
+}
+
+.info-box strong {
+    color: #333;
+}
+
+/* Navbox styling */
+.navbox {
+    margin-top: 20px; /* Space between the calculator content and the navbox */
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.navbox button, .navbox a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.navbox button:hover, .navbox a:hover {
+    background-color: #777;
+}
+
+.navbox a {
+    margin-left: 10px;
+}
+
+/* Links */
+a {
+    color: #1f9ce1;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #176a96;
+    text-decoration: underline;
+}

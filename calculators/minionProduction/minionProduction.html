@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minion Production Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        window.onload = () => showCategory('Farming');  
+
+        function showCategory(category) {
+            const categories = document.querySelectorAll('.minion-buttons');
+            categories.forEach(cat => cat.classList.remove('active'));
+            document.getElementById(category).classList.add('active');
+
+            const tabs = document.querySelectorAll('.tab button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`.tab button[data-category="${category}"]`).classList.add('active');
+        }
+    </script>
+
+    <div class="container">
+        <h1>Minion Production Calculator</h1>
+        <h2>Developed by Peaw | Improved by Ndr</h2>
+        <hr>
+        <label>Minion Type:</label>
+        <div class="tab">
+            <button data-category="Farming" onclick="showCategory('Farming')" title="Farming" style="background-image: url('images/categories/farming.png')"></button>
+            <button data-category="Mining" onclick="showCategory('Mining')" title="Mining" style="background-image: url('images/categories/mining.png')"></button>
+            <button data-category="Combat" onclick="showCategory('Combat')" title="Combat" style="background-image: url('images/categories/combat.png')"></button>
+            <button data-category="Slayer" onclick="showCategory('Slayer')" title="Slayer" style="background-image: url('images/categories/slayer.png')"></button>
+            <button data-category="Foraging" onclick="showCategory('Foraging')" title="Foraging" style="background-image: url('images/categories/foraging.png')"></button>
+        </div>
+ <br>   <div id="Farming" class="minion-buttons">
+        <div class="button-group" id="minionButtons">
+            <button class="buttonselect" data-value="Wheat Minion" title="Wheat Minion" style="background-image: url('images/minions/farming/wheat.png')"></button>
+            <button class="buttonselect" data-value="Carrot Minion" title="Carrot Minion" style="background-image: url('images/minions/farming/carrot.png')"></button>
+            <button class="buttonselect" data-value="Potato Minion" title="Potato Minion" style="background-image: url('images/minions/farming/potato.png')"></button>
+            <button class="buttonselect" data-value="Pumpkin Minion" title="Pumpkin Minion" style="background-image: url('images/minions/farming/pumpkin.png')"></button>
+            <button class="buttonselect" data-value="Melon Minion" title="Melon Minion" style="background-image: url('images/minions/farming/melon.png')"></button>
+            <button class="buttonselect" data-value="Mushroom Minion" title="Mushroom Minion" style="background-image: url('images/minions/farming/mushroom.gif')"></button>
+            <button class="buttonselect" data-value="Cocoa Beans Minion" title="Cocoa Beans Minion" style="background-image: url('images/minions/farming/cocoa_beans.png')"></button>
+            <button class="buttonselect" data-value="Sugar Cane Minion" title="Sugar Cane Minion" style="background-image: url('images/minions/farming/sugar_cane.png')"></button>
+            <button class="buttonselect" data-value="Chicken Minion" title="Chicken Minion" style="background-image: url('images/minions/farming/chicken.png')"></button>
+            <button class="buttonselect" data-value="Cow Minion" title="Cow Minion" style="background-image: url('images/minions/farming/cow.png')"></button>
+            <button class="buttonselect" data-value="Pig Minion" title="Pig Minion" style="background-image: url('images/minions/farming/pig.png')"></button>
+            <button class="buttonselect" data-value="Sheep Minion" title="Sheep Minion" style="background-image: url('images/minions/farming/sheep.png')"></button>
+            <button class="buttonselect" data-value="Cactus Minion" title="Cactus Minion" style="background-image: url('images/minions/farming/cactus.png')"></button>
+            <button class="buttonselect" data-value="Beetroot Minion" title="Beetroot Minion" style="background-image: url('images/minions/farming/beetroot.png')"></button>
+            <button class="buttonselect" data-value="Rabbit Minion" title="Rabbit Minion" style="background-image: url('images/minions/farming/rabbit.png')"></button>
+            <button class="buttonselect" data-value="Duck Minion" title="Duck Minion" style="background-image: url('images/minions/farming/duck.png')"></button>
+        </div>
+    </div>
+
+    <div class="minion-buttons" id="Mining">
+        <div class="button-group" id="minionButtons">
+            <button class="buttonselect" data-value="Cobblestone Minion" title="Cobblestone Minion" style="background-image: url('images/minions/mining/cobblestone.png')"></button>
+            <button class="buttonselect" data-value="Coal Minion" title="Coal Minion" style="background-image: url('images/minions/mining/coal.png')"></button>
+            <button class="buttonselect" data-value="Iron Minion" title="Iron Minion" style="background-image: url('images/minions/mining/iron.png')"></button>
+            <button class="buttonselect" data-value="Gold Minion" title="Gold Minion" style="background-image: url('images/minions/mining/gold.png')"></button>
+            <button class="buttonselect" data-value="Diamond Minion" title="Diamond Minion" style="background-image: url('images/minions/mining/diamond.png')"></button>
+            <button class="buttonselect" data-value="Lapis Lazuli Minion" title="Lapis Lazuli Minion" style="background-image: url('images/minions/mining/lapis.png')"></button>
+            <button class="buttonselect" data-value="Emerald Minion" title="Emerald Minion" style="background-image: url('images/minions/mining/emerald.png')"></button>
+            <button class="buttonselect" data-value="Redstone Minion" title="Redstone Minion" style="background-image: url('images/minions/mining/redstone.png')"></button>
+            <button class="buttonselect" data-value="Obsidian Minion" title="Obsidian Minion" style="background-image: url('images/minions/mining/obsidian.png')"></button>
+            <button class="buttonselect" data-value="Ice Minion" title="Ice Minion" style="background-image: url('images/minions/mining/ice.png')"></button>
+        </div>
+    </div>
+
+
+    <div class="minion-buttons" id="Combat">
+        <div class="button-group" id="minionButtons">
+            <button class="buttonselect" data-value="Zombie Minion" title="Zombie Minion" style="background-image: url('images/minions/combat/zombie.png')"></button>
+            <button class="buttonselect" data-value="Skeleton Minion" title="Skeleton Minion" style="background-image: url('images/minions/combat/skeleton.png')"></button>
+            <button class="buttonselect" data-value="Spider Minion" title="Spider Minion" style="background-image: url('images/minions/combat/spider.png')"></button>
+            <button class="buttonselect" data-value="Cave Spider Minion" title="Cave Spider Minion" style="background-image: url('images/minions/combat/cave_spider.png')"></button>
+            <button class="buttonselect" data-value="Creeper Minion" title="Creeper Minion" style="background-image: url('images/minions/combat/creeper.png')"></button>
+            <button class="buttonselect" data-value="Slime Minion" title="Slime Minion" style="background-image: url('images/minions/combat/slime.png')"></button>
+            <button class="buttonselect" data-value="Blaze Minion" title="Blaze Minion" style="background-image: url('images/minions/combat/blaze.png')"></button>
+            <button class="buttonselect" data-value="Magma Cube Minion" title="Magma Cube Minion" style="background-image: url('images/minions/combat/magma_cube.png')"></button>
+        </div>
+    </div>
+
+    <div class="minion-buttons" id="Slayer">
+        <div class="button-group" id="minionButtons">
+            <button class="buttonselect" data-value="Revenant Minion" title="Revenant Minion" style="background-image: url('images/minions/slayer/zombie_slayer.png')"></button>
+        </div>
+    </div>
+
+
+    <div class="minion-buttons" id="Foraging">
+        <div class="button-group" id="minionButtons">
+            <button class="buttonselect" data-value="Oak Minion" title="Oak Minion" style="background-image: url('images/minions/foraging/oak.png')"></button>
+            <button class="buttonselect" data-value="Birch Minion" title="Birch Minion" style="background-image: url('images/minions/foraging/birch.png')"></button>
+            <button class="buttonselect" data-value="Spruce Minion" title="Spruce Minion" style="background-image: url('images/minions/foraging/spruce.png')"></button>
+            <button class="buttonselect" data-value="Jungle Minion" title="Jungle Minion" style="background-image: url('images/minions/foraging/jungle.png')"></button>
+            <button class="buttonselect" data-value="Acacia Minion" title="Acacia Minion" style="background-image: url('images/minions/foraging/acacia.png')"></button>
+            <button class="buttonselect" data-value="Dark Oak Minion" title="Dark Oak Minion" style="background-image: url('images/minions/foraging/dark_oak.png')"></button>
+        </div>
+    </div>
+
+
+    <label>Minion Tiers:</label>
+<!-- Tiers 1-11 -->
+<div class="button-group" id="tierButtons">
+  <button class="buttonselect" data-value="1" title="Tier 1" style="background-image: url('images/tier/1.png')"></button>
+  <button class="buttonselect" data-value="2" title="Tier 2" style="background-image: url('images/tier/2.png')"></button>
+  <button class="buttonselect" data-value="3" title="Tier 3" style="background-image: url('images/tier/3.png')"></button>
+  <button class="buttonselect" data-value="4" title="Tier 4" style="background-image: url('images/tier/4.png')"></button>
+  <button class="buttonselect" data-value="5" title="Tier 5" style="background-image: url('images/tier/5.png')"></button>
+  <button class="buttonselect" data-value="6" title="Tier 6" style="background-image: url('images/tier/6.png')"></button>
+  <button class="buttonselect" data-value="7" title="Tier 7" style="background-image: url('images/tier/7.png')"></button>
+  <button class="buttonselect" data-value="8" title="Tier 8" style="background-image: url('images/tier/8.png')"></button>
+  <button class="buttonselect" data-value="9" title="Tier 9" style="background-image: url('images/tier/9.png')"></button>
+  <button class="buttonselect" data-value="10" title="Tier 10" style="background-image: url('images/tier/10.png')"></button>
+  <button class="buttonselect" data-value="11" title="Tier 11" style="background-image: url('images/tier/11.png')"></button>
+</div>
+
+
+<label>Fuel Type:</label>
+<!-- Fuel Types -->
+<div class="button-group" id="fuelButtons">
+  <button class="buttonselect" data-value="Coal (5%)" title="Coal (5%)" style="background-image: url('images/fuel/coal.png')"></button>
+  <button class="buttonselect" data-value="Coal Block (5%)" title="Coal Block (5%)" style="background-image: url('images/fuel/coal_block.png')"></button>
+  <button class="buttonselect" data-value="Enchanted Bread (5%)" title="Enchanted Bread (5%)" style="background-image: url('images/fuel/enchanted_bread.png')"></button>
+  <button class="buttonselect" data-value="Enchanted Coal (10%)" title="Enchanted Coal (10%)" style="background-image: url('images/fuel/enchanted_coal.png')"></button>
+  <button class="buttonselect" data-value="Enchanted Charcoal (20%)" title="Enchanted Charcoal (20%)" style="background-image: url('images/fuel/enchanted_charcoal.png')"></button>
+  <button class="buttonselect" data-value="Enchanted Lava Bucket (25%)" title="Enchanted Lava Bucket (25%)" style="background-image: url('images/fuel/enchanted_lava_bucket.png')"></button>
+  <button class="buttonselect" data-value="Hamster Wheel (40%)" title="Hamster Wheel (40%)" style="background-image: url('images/fuel/hamster_wheel.png')"></button>
+  <button class="buttonselect" data-value="Foul Flesh (80%)" title="Foul Flesh (80%)" style="background-image: url('images/fuel/foul_flesh.png')"></button>
+</div>
+
+<label>Minion Upgrades:</label>
+<div class="minion-upgrades-row">
+    <button 
+        data-value="no" 
+        id="diamondSpreadingToggle" 
+        title="Diamond Spreading" 
+        style="background-image: url('images/diamond/yes.png')"
+        class="toggle-button"
+    ></button>
+    <button 
+        data-value="no" 
+        id="superCompactorToggle" 
+        title="Super Compactor 3000" 
+        style="background-image: url('images/compactor/yes.png')"
+        class="toggle-button"
+    ></button>
+</div>
+
+<br>
+ <br><div class="calcbutton">
+    <button class="calcuateButton" onclick="calculateProduction()">Calculate Production</button>
+</div>
+<br>
+    <div class="result" id="result"></div>
+
+  <script src="minionProduction.js"></script>
+</body>
+</html>

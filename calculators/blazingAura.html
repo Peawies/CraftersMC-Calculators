@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Blazing Aura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Calculator | Blazing Aura</h1>
+            <button id="themeToggle">🌑</button>
+        </div>
+        <label for="blazeRods">What is your Blaze Rod <img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.3em; vertical-align: middle;"> collection?</label>
+        <input type="number" id="blazeRods" placeholder="Enter number" min="0">
+        <button onclick="calculateDamage()">Calculate</button>
+        <div class="result" id="result">
+            Base maximum damage: 500 <img src="images/damage.png" style="height: 1.1em; vertical-align: middle;">
+        </div>
+    </div>
+
+    <div class="container info-box">
+        <ul>These are 3% of mobs' health <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">, but this damage is capped by the Blazing Aura ability.</ul>
+        <ul>Blazing Aura also has a maximum damage of 5,000.</ul>
+        <ul>Chicken (20) : 0.6 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Duck (20) : 0.6 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Cow (50) : 1.5 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Pig (50) : 1.5 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Spider (60) : 1.8 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Zombie (Village) (90) : 2.7 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Zombie (Caverns) (100) : 3 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Skeleton (100) : 3 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Mossy Skeleton (100) : 3 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Sheep (120) : 3.6 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Rabbit (130) : 3.9 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Creeper (160) : 4.8 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Wolf (250) : 7.5 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Wicked Dwarf (350) : 10.5 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Eye of the Cliffs (500) : 15 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Revenant Horror I (500) : 15 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Slime (600) : 18 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Slime Sheep (700) : 21 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Giant Slime (900) : 27 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Fire Envoy (1,400) : 42 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Heartigniter (1,500) : 45 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Crypt Ghoul (2,000) : 60 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Fenrir Packmaster I (2,000) : 60 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Wolf Spirit (6,000) : 180 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Howling Spirit (7,000) : 210 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Old Wolf (15,000) : 450 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Revenant Horror II (20,000) : 600 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Soul of the Alpha (32,000) : 960 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Fenrir Packmaster II (40,000) : 1200 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Golden Ghoul (45,000) : 1,350 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Revenant Horror III (400,000) : <s>12,000</s> 5,000 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Fenrir Packmaster III (750,000) : <s>22,500</s> 5,000 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Revenant Horror IV (1,500,000) : <s>45,000</s> 5,000 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Fenrir Packmaster IV (2,000,000) : <s>60,000</s> 5,000 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;"><br>Revenant Horror V (10,000,000) : <s>300,000</s> 5,000 <img src="images/health.png" style="height: 1.1em; vertical-align: middle;">
+        </ul>
+    </div>
+    <div class="container info-box">
+        <center><h2>All Calculators</h1></center>
+        <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+    </div>
+    <script>
+        function calculateDamage() {
+            const blazeRods = parseInt(document.getElementById('blazeRods').value) || 0;
+            const maxBlazeRods = 225000;
+            const damagePer5000 = 100;
+
+            let warningMessage = "";
+            let cappedBlazeRods = blazeRods;
+
+            if (blazeRods > maxBlazeRods) {
+                warningMessage = `The maximum is 5000 total damage <img src="images/damage.png" style="height: 1.1em; vertical-align: middle;"> (225,000x Blaze Rod <img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.3em; vertical-align: middle;">).`;
+                cappedBlazeRods = maxBlazeRods;
+            }
+
+            // Calculate bonus damage
+            const bonusDamage = Math.floor(cappedBlazeRods / 5000) * damagePer5000;
+
+            // Total damage
+            const baseDamage = 500;
+            const totalDamage = baseDamage + bonusDamage;
+
+            // Update the result display
+            document.getElementById('result').innerHTML = `
+                Base maximum damage: ${baseDamage} <img src="images/damage.png" style="height: 1.1em; vertical-align: middle;"><br>
+                Bonus maximum damage: +${bonusDamage} <img src="images/damage.png" style="height: 1.1em; vertical-align: middle;"><br>
+                Total maximum damage: ${totalDamage} <img src="images/damage.png" style="height: 1.1em; vertical-align: middle;">
+            `;
+
+            // Add warning message if needed
+            if (warningMessage) {
+                document.getElementById('result').innerHTML += `<br><span style="color: red;">${warningMessage}</span>`;
+            }
+        }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+    </script>
+
+</body>
+</html>

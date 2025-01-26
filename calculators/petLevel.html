@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Pet Level</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Calculator | Pet Level</h1>
+            <button id="themeToggle">🌑</button>
+        </div>
+        <label for="rarity">What is the rarity of your pet?</label>
+        <select id="rarity">
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+        </select>
+        
+        <label for="currentLevel">What is your pet's level?</label>
+        <input type="number" id="currentLevel" placeholder="Enter number" min="1" max="100">
+        
+        <label for="currentXP">How much XP does your pet have right now?</label>
+        <input type="number" id="currentXP" placeholder="Enter number" min="0">
+        
+        <label for="wantedLevel">What is your target level?</label>
+        <input type="number" id="wantedLevel" placeholder="Enter number" min="1" max="100">
+        
+        <button onclick="calculateXP()">Calculate</button>
+        
+        <div class="result" id="result">
+            XP needed will be shown here.
+        </div>
+    </div>
+    <div class="container info-box">
+        <center><h2>All Calculators</h1></center>
+        <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+    </div>
+    <script>
+        const totalXPData = {
+            common: [ /*1*/0, 100, 210, 320, 450, 595, 755, 930, 1120, /*10*/1340, 1570, 1820, 2095, 2395, 2725, 3085, 3485, 3925, 4415, /*20*/4955, 5555, 6215, 6945, 7745, 8625, 9585, 10635, 11785, 13045, /*30*/14425, 15935, 17585, 19385, 21345, 23475, 25785, 28285, 30985, 33905, /*40*/37065, 40485, 44185, 48185, 52535, 57285, 62485, 68185, 74745, 81485, /*50*/89285, 97985, 107685, 118485, 130485, 143785, 158485, 174685, 192485, 211985, /*60*/233285, 256485, 281685, 309085, 338885, 371285, 406485, 444685, 486085, 530885, /*70*/579285, 631485, 687685, 748085, 812885, 882285, 956485, 1065685, 1120385, 1211085, /*80*/1308285, 1412485, 1524185, 1643885, 1772085, 1909285, 2055985, 2212685, 2380385, 2560085, /*90*/2752785, 2959458, 3181185, 3418885, 3673585, 3946285, 4237985, 4549685, 4883385, 5241085, /*100*/5624785 ],
+            uncommon: [/*1*/0, 175, 365, 575, 805, 1055, 1330, 1630, 1960, /*10*/2320, 2720, 3160, 3650, 4190, 4790, 5450, 6180, 6980, 7860, /*20*/8820, 9870, 11020, 12280, 13660, 15170, 16280, 18620, 20580, 22710, /*30*/25020, 27520, 30220, 33140, 36300, 39720, 43420, 47420, 51770, 56520, /*40*/61720, 67420, 73720, 80720, 88520, 97220, 106920, 117720, 129720, 143020, /*50*/157720, 173920, 191720, 211220, 232520, 255720, 280920, 308320, 338120, 370520, /*60*/405720, 443920, 485320, 530120, 578520, 630720, 686920, 747320, 812120, 881520, /*70*/955720, 1034920, 1119620, 1210320, 1307520, 1411720, 1523420, 1643120, 1771320, 1908520, /*80*/2055220, 2211920, 2379620, 2559320, 2752020, 2958720, 3180420, 3418120, 3672820, 3945520, /*90*/4237220, 4548920, 4882620, 5240320, 5624020, 6035720, 6477420, 6954120, 7470820, 8032520, /*100*/8644220 ],
+            rare: [/*1*/0, 275, 575, 905, 1265, 1665, 2105, 2595, 3135, /*10*/3735, 4395, 5125, 5925, 6805, 7765, 8815, 9965, 11225, 12605, /*20*/14115, 15765, 17565, 19525, 21655, 23965, 26465, 29165, 32085, 35245, /*30*/38665, 42365, 46365, 50715, 55465, 60665, 66365, 72665, 79665, 87465, /*40*/96165, 105865, 116665, 128665, 141965, 156665, 172865, 190665, 210165, 231465, /*50*/254665, 279865, 307265, 337065, 369465, 404665, 442865, 484265, 529065, 577465, /*60*/629665, 685865, 746265, 811065, 880465, 954665, 1033865, 1118565, 1209265, 1306465, /*70*/1410665, 1522365, 1642065, 1770265, 1907465, 2054165, 2210865, 2378565, 2558265, 2750965, /*80*/2957665, 3179365, 3417065, 3671765, 3944465, 4236165, 4547865, 4881565, 5239265, 5622965, /*90*/6034665, 6476365, 6953065, 7469765, 8031465, 8643165, 9309865, 10036565, 10828265, 11689965, 12626665 ],
+            epic: [0, 180, 540, 1080, /* ... up to level 100 */],
+            legendary: [0, 200, 600, 1200, /* ... up to level 100 */]
+        };
+    
+        const candyXP = {
+            simple: 20000,
+            great: 100000,
+            superb: 500000,
+            ultimate: 1000000
+        };
+
+        function calculateXP() {
+            const rarity = document.getElementById('rarity').value;
+            const currentLevel = parseInt(document.getElementById('currentLevel').value) || 0;
+            const currentXP = parseInt(document.getElementById('currentXP').value) || 0;
+            const wantedLevel = parseInt(document.getElementById('wantedLevel').value) || 0;
+
+            if (currentLevel >= wantedLevel) {
+                document.getElementById('result').innerText = "Wanted level must be higher than current level.";
+                return;
+            }
+
+            const xpLevels = totalXPData[rarity];
+            const totalXPForCurrent = xpLevels[currentLevel - 1] || 0;
+            const totalXPForWanted = xpLevels[wantedLevel - 1] || 0;
+            const xpNeeded = totalXPForWanted - (totalXPForCurrent + currentXP);
+
+            let resultText = `XP needed: ${xpNeeded > 0 ? xpNeeded : 0}\nIf you want to use candies to level up your pet...`;
+
+            Object.keys(candyXP).forEach(candyType => {
+                let candyAmount = 0;
+                let remainingXP = xpNeeded;
+                let maxCandies = 10;
+
+                while (remainingXP > 0 && candyAmount < maxCandies) {
+                    remainingXP -= candyXP[candyType];
+                    candyAmount++;
+                }
+
+                const xpAfterCandies = totalXPForCurrent + currentXP + (candyAmount * candyXP[candyType]);
+                let finalLevel = xpLevels.findIndex(xp => xp > xpAfterCandies);
+                finalLevel = finalLevel === -1 ? 100 : finalLevel;
+
+                if (candyAmount <= maxCandies) {
+                    resultText += `\n${candyAmount}x ${candyType.charAt(0).toUpperCase() + candyType.slice(1)} Beetroot Candies -> Level ${finalLevel}`;
+                } else {
+                    resultText += `\n10x ${candyType.charAt(0).toUpperCase() + candyType.slice(1)} Beetroot Candies -> Level ${finalLevel}`;
+                }
+            });
+
+            document.getElementById('result').innerText = resultText;
+        }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+    </script>
+</body>
+</html>

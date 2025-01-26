@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | XP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Calculator | XP</h1>
+            <button id="themeToggle">🌑</button>
+        </div>
+        <label for="currentLevel">What is your XP <img src="images/exp.png" style="height: 1.3em; vertical-align: middle;"> level?</label>
+        <input type="number" id="currentLevel" min="0" placeholder="Enter number">
+
+        <label for="targetLevel">What is your target XP <img src="images/exp.png" style="height: 1.3em; vertical-align: middle;"> level?</label>
+        <input type="number" id="targetLevel" min="0" placeholder="Enter number">
+
+        <label for="enchantingLevel">What is your Enchanting <img src="images/enchanting_table.png" style="height: 1.3em; vertical-align: middle;"> skill level?</label>
+        <input type="number" id="enchantingLevel" min="0" max="50" placeholder="Enter number">
+
+        <button onclick="calculateXPRequirements()">Calculate</button>
+
+        <div class="result" id="result"></div>
+    </div>
+    <div class="container info-box">
+        <center><h2>All Calculators</h1></center>
+        <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+    </div>
+    <script>
+        function calculateXP(level) {
+            if (level <= 16) {
+                return level * level + 6 * level;
+            } else if (level <= 31) {
+                return 2.5 * level * level - 40.5 * level + 360;
+            } else {
+                return 4.5 * level * level - 162.5 * level + 2220;
+            }
+        }
+
+        function calculateXPDifference(currentLevel, targetLevel) {
+            const currentXP = calculateXP(currentLevel);
+            const targetXP = calculateXP(targetLevel);
+            return targetXP - currentXP;
+        }
+
+        function applyEnchantingBonus(xp, enchantingLevel) {
+            const bonusMultiplier = 1 + (enchantingLevel * 0.04);
+            return xp / bonusMultiplier;
+        }
+
+        function calculateBottleUsage(xp, bottleType) {
+            const bottleXP = {
+                normal: 8,
+                grand: 1500,
+                titanic: 250000,
+                colossal: 500000
+            };
+            return Math.ceil(xp / bottleXP[bottleType]);
+        }
+
+        function calculateXPRequirements() {
+            const currentLevel = parseInt(document.getElementById('currentLevel').value);
+            const targetLevel = parseInt(document.getElementById('targetLevel').value);
+            const enchantingLevel = parseInt(document.getElementById('enchantingLevel').value);
+
+            if (isNaN(currentLevel) || isNaN(targetLevel) || isNaN(enchantingLevel)) {
+                alert('Please fill in all fields with valid numbers.');
+                return;
+            }
+
+            if (enchantingLevel > 50) {
+                enchantingLevel = 50; // Cap enchanting level at 50
+                document.getElementById('enchantingLevel').value = 50;
+            }
+
+            if (currentLevel >= targetLevel) {
+                alert('Target level must be greater than current level.');
+                return;
+            }
+
+            const requiredXP = calculateXPDifference(currentLevel, targetLevel);
+            const adjustedXP = applyEnchantingBonus(requiredXP, enchantingLevel);
+
+            const result = `
+                <p><strong>XP required:</strong> ${requiredXP} <img src="images/exp.png" style="height: 1.3em; vertical-align: middle;"></p>
+                <p>Since you are Enchanting ${enchantingLevel} <img src="images/enchanting_table.png" style="height: 1.3em; vertical-align: middle;">, you only need ${adjustedXP.toFixed(2)} XP  <img src="images/exp.png" style="height: 1.3em; vertical-align: middle;">. To reach that...</p>
+                <p><strong>Normal XP bottles needed:</strong> ${calculateBottleUsage(adjustedXP, 'normal')} <img src="images/normalxp.png" style="height: 1.1em; vertical-align: middle;"></p>
+                <p><strong>Grand XP bottles needed:</strong> ${calculateBottleUsage(adjustedXP, 'grand')} <img src="images/grandxp.png" style="height: 1.1em; vertical- align: middle;"></p>
+                <p><strong>Titanic XP bottles needed:</strong> ${calculateBottleUsage(adjustedXP, 'titanic')} <img src="images/titanicxp.png" style="height: 1.1em; vertical-align: middle;"></p>
+                <p><strong>Colossal XP bottles needed:</strong> ${calculateBottleUsage(adjustedXP, 'colossal')} <img src="images/colossalxp.png" style="height: 1.1em; vertical-align: middle;"></p>
+            `;
+
+            document.getElementById('result').innerHTML = result;
+        }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+    </script>
+</body>
+</html>

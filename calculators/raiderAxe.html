@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Raider Axe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="header">
+            <h1>Calculator | Raider Axe</h1>
+            <button id="themeToggle">🌑</button>
+        </div>
+        <label for="emeralds">What are your log collections?</label>
+        <input type="number" id="oakLog" placeholder="Oak Log" min="0">
+        <input type="number" id="spruceLog" placeholder="Spruce Log" min="0">
+        <input type="number" id="birchLog" placeholder="Birch Log" min="0">
+        <input type="number" id="darkOakLog" placeholder="Dark Oak Log" min="0">
+        <input type="number" id="acaciaLog" placeholder="Acacia Log" min="0">
+        <input type="number" id="jungleLog" placeholder="Jungle Log" min="0">
+        <button onclick="calculateBonus()">Calculate</button>
+        <div class="result" id="result">
+            Base statistics: +150 Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;">
+        </div>
+    </div>
+    <div class="container info-box">
+        <center><h2>All Calculators</h1></center>
+        <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
+    </div>
+    <script>function calculateBonus() {
+        const oakLog = parseInt(document.getElementById('oakLog').value) || 0;
+        const spruceLog = parseInt(document.getElementById('spruceLog').value) || 0;
+        const birchLog = parseInt(document.getElementById('birchLog').value) || 0;
+        const darkOakLog = parseInt(document.getElementById('darkOakLog').value) || 0;
+        const acaciaLog = parseInt(document.getElementById('acaciaLog').value) || 0;
+        const jungleLog = parseInt(document.getElementById('jungleLog').value) || 0;
+
+        let logFull = oakLog + spruceLog + birchLog + darkOakLog + acaciaLog + jungleLog;
+        const maxLog = 50000;
+    
+        let warningMessage = "";
+        if (logFull > maxLog) {
+            warningMessage = `The maximum is +100 Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;"> bonus (50,000x Log <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.3em; vertical-align: middle;">).`;
+            logFull = maxLog;
+        }
+    
+        const bonus = Math.floor(logFull / 500);
+        const baseStrength = 150;
+        const bonusStrength = bonus; //
+    
+        const totalStrength = baseStrength + bonusStrength;
+    
+        document.getElementById('result').innerHTML = `
+            Base statistics: +${baseStrength} Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;"><br>
+            From bonus: +${bonusStrength} Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;"><br>
+            Result: +${totalStrength} Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;">
+        `;
+    
+        if (warningMessage) {
+            document.getElementById('result').innerHTML += `<br><span style="color: red;">${warningMessage}</span>`;
+        }
+    }
+
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Ensure the button text matches the initial theme
+        if (document.body.classList.contains('dark-theme')) {
+            themeToggle.textContent = '☀️';
+        } else {
+            themeToggle.textContent = '🌑';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌑';
+            }
+        });
+    </script>
+</body>
+</html>
