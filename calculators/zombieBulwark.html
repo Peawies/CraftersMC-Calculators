@@ -13,7 +13,7 @@
         <button id="themeToggle">🌑</button>
     </div>
     <label for="zombies">How many zombies you've killed before? You probably don't know this and will enter a random number anyways.</label>
-    <input type="number" id="zombies" placeholder="Enter number" min="0">
+    <input type="number" id="zombies" placeholder="Enter number" min="0" oninput="enforceBounds(this)">
     <button onclick="calculateDef()">Calculate</button>
     <div class="result" id="result"></div>
   </div>
@@ -22,6 +22,19 @@
     <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
 </div>
   <script>
+    function enforceBounds(input) {
+        const min = parseInt(input.min, 10);
+        const max = parseInt(input.max, 10);
+        const value = parseInt(input.value, 10);
+    
+        // Ensure value stays within bounds
+        if (value < min) {
+            input.value = min;
+        } else if (value > max) {
+            input.value = max;
+        }
+    }
+    
     function calculateDef() {
         const maxZombie = 500000;
         let zombies = parseInt(document.getElementById('zombies').value) || 0;
