@@ -7,7 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minion Production Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    
 </head>
 <body>
     <script>
@@ -25,10 +27,11 @@
     </script>
 
     <div class="container">
+        <button id="dark-mode-toggle" class="toggle-button">🌙</button>
         <h1>Minion Production Calculator</h1>
         <h2>Developed by Peaw | Improved by Ndr</h2>
         <hr>
-        <label>Minion Type:</label>
+        <h3>Minion Type:</h3>
         <div class="tab">
             <button data-category="Farming" onclick="showCategory('Farming')" title="Farming" style="background-image: url('images/categories/farming.png')"></button>
             <button data-category="Mining" onclick="showCategory('Mining')" title="Mining" style="background-image: url('images/categories/mining.png')"></button>
@@ -105,7 +108,7 @@
     </div>
 
 
-    <label>Minion Tiers:</label>
+    <h3>Minion Tiers:</h3>
 <!-- Tiers 1-11 -->
 <div class="button-group" id="tierButtons">
   <button class="buttonselect" data-value="1" title="Tier 1" style="background-image: url('images/tier/1.png')"></button>
@@ -122,7 +125,7 @@
 </div>
 
 
-<label>Fuel Type:</label>
+<h3>Fuel Type:</h3>
 <!-- Fuel Types -->
 <div class="button-group" id="fuelButtons">
   <button class="buttonselect" data-value="Coal (5%)" title="Coal (5%)" style="background-image: url('images/fuel/coal.png')"></button>
@@ -135,7 +138,7 @@
   <button class="buttonselect" data-value="Foul Flesh (80%)" title="Foul Flesh (80%)" style="background-image: url('images/fuel/foul_flesh.png')"></button>
 </div>
 
-<label>Minion Upgrades:</label>
+<h3>Minion Upgrades:</h3>
 <div class="minion-upgrades-row">
     <button 
         data-value="no" 
@@ -155,11 +158,10 @@
 
 <br>
  <br><div class="calcbutton">
-    <button class="calcuateButton" onclick="calculateProduction()">Calculate Production</button>
+    <button class="calcuateButton" onclick="calculateProduction()"><b>Calculate Production</b></button>
 </div>
 <br>
     <div class="result" id="result"></div>
-
-  <script src="minionProduction.js"></script>
+    <script src="calculator.js"></script>
 </body>
 </html>
