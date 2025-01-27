@@ -13,12 +13,12 @@
             <button id="themeToggle">🌑</button>
         </div>
         <label for="emeralds">What are your log collections?</label>
-        <input type="number" id="oakLog" placeholder="Oak Log" min="0">
-        <input type="number" id="spruceLog" placeholder="Spruce Log" min="0">
-        <input type="number" id="birchLog" placeholder="Birch Log" min="0">
-        <input type="number" id="darkOakLog" placeholder="Dark Oak Log" min="0">
-        <input type="number" id="acaciaLog" placeholder="Acacia Log" min="0">
-        <input type="number" id="jungleLog" placeholder="Jungle Log" min="0">
+        <input type="number" id="oakLog" placeholder="Oak Log" min="0" oninput="enforceBounds(this)">
+        <input type="number" id="spruceLog" placeholder="Spruce Log" min="0" oninput="enforceBounds(this)">
+        <input type="number" id="birchLog" placeholder="Birch Log" min="0" oninput="enforceBounds(this)">
+        <input type="number" id="darkOakLog" placeholder="Dark Oak Log" min="0" oninput="enforceBounds(this)">
+        <input type="number" id="acaciaLog" placeholder="Acacia Log" min="0" oninput="enforceBounds(this)">
+        <input type="number" id="jungleLog" placeholder="Jungle Log" min="0" oninput="enforceBounds(this)">
         <button onclick="calculateBonus()">Calculate</button>
         <div class="result" id="result">
             Base statistics: +150 Strength <img src="images/strength.png" style="height: 1.1em; vertical-align: middle;">
@@ -28,7 +28,21 @@
         <center><h2>All Calculators</h1></center>
         <ul><img src="minionProduction/images/minions/combat/blaze.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/blazingAura.html">Blazing Aura</a> • <img src="minionProduction/images/minions/mining/emerald.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/emeraldArmor.html">Emerald Armor</a> • <img src="images/coin.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/emeraldBlade.html">Emerald Blade</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/experience.html">Experience</a> • <img src="minionProduction/images/categories/mining.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/minionProduction/minionProduction.html">Minion Production</a> • <img src="images/exp.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/petLevel.html">Pet Level</a> • <img src="minionProduction/images/minions/foraging/oak.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/raiderAxe.html">Raider Axe</a> • <img src="minionProduction/images/minions/combat/zombie.png" style="height: 1.1em; vertical-align: middle;"> <a href="https://peawies.github.io/CraftersMC-Calculators/calculators/zombieBulwark.html">Zombie Bulwark</a></ul>
     </div>
-    <script>function calculateBonus() {
+    <script>
+        function enforceBounds(input) {
+            const min = parseInt(input.min, 10);
+            const max = parseInt(input.max, 10);
+            const value = parseInt(input.value, 10);
+        
+            // Ensure value stays within bounds
+            if (value < min) {
+                input.value = min;
+            } else if (value > max) {
+                input.value = max;
+            }
+        }
+        
+    function calculateBonus() {
         const oakLog = parseInt(document.getElementById('oakLog').value) || 0;
         const spruceLog = parseInt(document.getElementById('spruceLog').value) || 0;
         const birchLog = parseInt(document.getElementById('birchLog').value) || 0;
