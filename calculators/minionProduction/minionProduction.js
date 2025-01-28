@@ -19,6 +19,7 @@ document.getElementById('dark-mode-toggle').addEventListener('click', (event) =>
   document.querySelectorAll('h3').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
   document.querySelectorAll('label').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
   document.querySelectorAll('.tab').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
+  document.querySelectorAll('.result').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
 });
 
 
