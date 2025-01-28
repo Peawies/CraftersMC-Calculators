@@ -9,18 +9,17 @@
   --green: #008000;
   --white: #ffffff;
   --dark-gray: darkgray;
-  --shadow-blue: rgba(0, 123, 255, 0.5);
+  --shadow-black: rgba(0, 0, 0, 0.5);
   --light-green: #45a049;
 }
 
 :root {
-  --background-dark: #ffffff;
-  --container-dark: #ffffff;
-  --text-dark: #000000;
-  --button-dark: #007bff;
+  --background-dark: #f1f2f6;
+  --container-dark: #f1f2f6;
+  --text-dark: #7182a7;
+  --button-dark: #7182a7;
   --button-select-dark: #8c9c4c;
-  --tab-button-dark: #007bff;
-  --text-dark: #000000;
+  --tab-button-dark: #7182a7;
 }
 
 .theme-container {
@@ -117,11 +116,6 @@ label.dark-mode {
   background-color: var(--text-dark);
   border: 1px solid var(--button-dark);
 }*/
-
-.result.dark-mode {
-  font-size: 30px;
-  color: var(--text-dark);
-}
 
 body {
   margin: 10;
@@ -264,7 +258,7 @@ button:hover {
   opacity: 0.8;
 }
 .calcuateButton {
-  background-color: var(--dark-gray); 
+  background-color: var(--button-select); 
   color: var(--white); 
   font-size: 20px; 
   padding: 15px 150px; 
@@ -286,12 +280,16 @@ button:hover {
 
 .calcuateButton:focus {
   outline: none; 
-  box-shadow: 0 0 5px 2px var(--shadow-blue);    
+  box-shadow: 0 0 5px 2px var(--shadow-black);    
 }
 
 .result {
   font-size: 30px;
-  color: var(--white);
+  color: var(--text);
+}
+.result.dark-mode {
+  font-size: 30px;
+  color: var(--text-dark);
 }
 
 .toggle-button {
