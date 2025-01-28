@@ -118,6 +118,11 @@ label.dark-mode {
   border: 1px solid var(--button-dark);
 }*/
 
+.result.dark-mode {
+  font-size: 30px;
+  color: var(--text-dark);
+}
+
 body {
   margin: 10;
   height: 114vh;
