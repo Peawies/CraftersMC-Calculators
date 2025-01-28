@@ -14,6 +14,6 @@ This is a web-based tool that helps players to calculate various things for Craf
 
 ## Credits
 - Developed by [Peaw](https://github.com/Peawies)
-- Improved *Minion Production Calculator* interface by [Ndr](https://github.com/notndricim)
+- Improved *Minion Production Calculator* interface by [Ndr](https://github.com/notndricim), Techon(https://github.com/TechonVS)
 
 [CraftersMC Calculators](https://github.com/Peawies/CraftersMC-Calculators) © 2025 by [Peaw](https://github.com/Peawies) is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1).
