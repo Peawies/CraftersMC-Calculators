@@ -1,25 +1,10 @@
-// Function to toggle a button's state
-
 document.getElementById('dark-mode-toggle').addEventListener('click', (event) => {
-  const button = event.target;
-  const isDarkMode = document.body.classList.toggle('dark-mode');
-  
-  button.textContent = isDarkMode ? '🌑' : '☀️';
-  button.classList.toggle('dark-mode', isDarkMode);
-  button.classList.toggle('light-mode', !isDarkMode);
-
-  document.querySelectorAll('.container').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('button').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.buttonselect').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.tab button').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.minion-buttons button').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.toggle-button').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('h1').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('h2').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('h3').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('label').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.tab').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
-  document.querySelectorAll('.result').forEach(el => el.classList.toggle('dark-mode', isDarkMode));
+    const button = event.target;
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    button.textContent = isDarkMode ? '🌑' : '☀️';
+    button.classList.toggle('dark-mode', isDarkMode);
+    document.querySelectorAll('.container, button, .buttonselect, .tab button, .minion-buttons button, .toggle-button, h1, h2, h3, label, .tab, .result, .roman-numerals, .roman-numerals span')
+        .forEach(el => el.classList.toggle('dark-mode', isDarkMode));
 });
 
 
