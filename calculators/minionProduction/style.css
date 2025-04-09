@@ -16,10 +16,10 @@
 :root {
   --background-dark: #f1f2f6;
   --container-dark: #f1f2f6;
-  --text-dark: #7182a7;
-  --button-dark: #7182a7;
-  --button-select-dark: #8c9c4c;
-  --tab-button-dark: #7182a7;
+  --text-dark: #008000;
+  --button-dark: #77a771;
+  --button-select-dark: #008000;
+  --tab-button-dark: #71a771;
 }
 
 .theme-container {
