@@ -1,12 +1,35 @@
-document.getElementById('light-mode-toggle').addEventListener('click', (event) => {
-    const button = event.target;
-    const isDarkMode = document.body.classList.toggle('light-mode');
-    button.textContent = isDarkMode ? '🌑' : '☀️';
-    button.classList.toggle('light-mode', isDarkMode);
-    document.querySelectorAll('.container, button, .buttonselect, .tab button, .minion-buttons button, .toggle-button, h1, h2, h3, label, .tab, .result, .roman-numerals, .roman-numerals span')
-        .forEach(el => el.classList.toggle('light-mode', isDarkMode));
+// Check for light mode preference in localStorage on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLightMode = localStorage.getItem('lightMode') === 'true';
+    if (savedLightMode) {
+        enableLightMode();
+    }
 });
 
+document.getElementById('light-mode-toggle').addEventListener('click', () => {
+    const isLightMode = document.body.classList.contains('light-mode');
+    if (isLightMode) {
+        disableLightMode();
+    } else {
+        enableLightMode();
+    }
+});
+
+function enableLightMode() {
+    document.body.classList.add('light-mode');
+    localStorage.setItem('lightMode', 'true');
+    document.getElementById('light-mode-toggle').textContent = '🌑';
+    document.querySelectorAll('.container, button, .buttonselect, .tab button, .minion-buttons button, .toggle-button, h1, h2, h3, label, .tab, .result, .roman-numerals, .roman-numerals span')
+        .forEach(el => el.classList.add('light-mode'));
+}
+
+function disableLightMode() {
+    document.body.classList.remove('light-mode');
+    localStorage.setItem('lightMode', 'false');
+    document.getElementById('light-mode-toggle').textContent = '☀️';
+    document.querySelectorAll('.container, button, .buttonselect, .tab button, .minion-buttons button, .toggle-button, h1, h2, h3, label, .tab, .result, .roman-numerals, .roman-numerals span')
+        .forEach(el => el.classList.remove('light-mode'));
+}
 
 function toggleButton(buttonId, selectionKey) {
   const button = document.getElementById(buttonId);
