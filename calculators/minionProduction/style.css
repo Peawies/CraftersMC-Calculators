@@ -230,6 +230,10 @@ button:hover {
   image-rendering: pixelated;
 }
 
+.tab button:last-child {
+  margin-right: 0;
+}
+
 .tab button.active {
   border: 1px solid var(--green);
   background-color: var(--green);
