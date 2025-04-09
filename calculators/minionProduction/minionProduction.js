@@ -1,4 +1,4 @@
-// Check for light mode preference in localStorage on page load
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedLightMode = localStorage.getItem('lightMode') === 'true';
     if (savedLightMode) {
