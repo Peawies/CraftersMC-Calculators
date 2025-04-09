@@ -4,62 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Tools Homepage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 1rem;
-            width: 250px;
-            text-align: center;
-            overflow: hidden;
-        }
-        .card img {
-            width: 70%;
-            height: auto;
-            object-fit: cover;
-        }
-        .card h3 {
-            margin: 1rem 0 0.5rem;
-            font-size: 1.2rem;
-        }
-        .card p {
-            color: #555;
-            font-size: 0.9rem;
-            margin: 0 1rem 1rem;
-        }
-        .card a {
-            display: inline-block;
-            margin: 1rem 0;
-            padding: 0.5rem 1rem;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .card a:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="home.css">
+    <script type="text/javascript" src="lightmodeHome.js" defer></script><!-- note to peaw: DO NOT REMOVE DEFER OR IT WILL BREAK TY - techon -->
 </head>
 <body>
     <header>
@@ -67,6 +13,7 @@
         <p>Find a range of calculators made by Peawies. </p>
         <p style="font-size: 0.5rem;">Made by Peawies/Peawio. Minion calculator interface improved by Ndr and TechonTheDev. Homepage by TechonTheDev</p>
     </header>
+    <button id="themeToggle"><span>🌑</span><span>☀️</span></button>
     <div class="container">
         <div class="card">
             <img src="calculators/minionProduction/images/compactor/yes.png" alt="Calculator Tool">
@@ -91,6 +38,12 @@
             <h3>Experience Calculator</h3>
             <p>Calculate how much XP you need to get a certain level</p>
             <a href="calculators/experience.html">Open Tool</a>
+        </div>
+        <div class="card">
+            <img src="calculators/images/Ultimate_Beetroot_Candy.png" alt="Pet level Calculator">
+            <h3>Pet Level Calculator</h3>
+            <p>Calculate how much pet xp you need for your pet to get to your desired level</p>
+            <a href="calculators/petLevel.html">Open Tool</a>
         </div>
         <div class="card">
             <img src="calculators/images/raiderAxe.png" alt="Raider axe Calculator">
