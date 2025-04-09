@@ -358,7 +358,7 @@ button:hover {
 .minion-upgrades-row {
   display: flex;
   justify-content: center;
-  align: center;
+  align-items: center;
   gap: 20px; 
 }
 
