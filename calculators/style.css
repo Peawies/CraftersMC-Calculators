@@ -122,6 +122,7 @@ select, input {
     line-height: 1.6;
     max-height: 200px; /* Set a maximum height */
     overflow-y: auto; /* Add a vertical scroll bar when content overflows */
+    align-items: center;
 }
 body.dark-theme .info-box {
     background-color: #242424;
