@@ -40,7 +40,7 @@
   margin: 0 auto;
 }
 
-.theme-button.dark-mode {
+.theme-button.light-mode {
   color: var(--text-dark);
 }
 
@@ -48,71 +48,71 @@
   color: var(--text);
 }*/
 
-body.dark-mode {
+body.light-mode {
   background: var(--background-dark);
   color: var(--text-dark);
 }
 
-.container.dark-mode {
+.container.light-mode {
   background-color: var(--container-dark);
   color: var(--text-dark);
 }
 
-button.dark-mode {
+button.light-mode {
   background-color: var(--button-dark);
   border: 1px solid var(--button-dark);
   color: var(--container-dark);
 }
 
-.buttonselect.dark-mode.selected {
+.buttonselect.light-mode.selected {
   background-color: var(--button-select-dark);
   color: var(--black);
 }
 
-.tab.dark-mode button {
+.tab.light-mode button {
   background-color: var(--button-dark);
   border: 1px solid var(--tab-button-dark);
 }
 
-.tab.dark-mode button.active {
+.tab.light-mode button.active {
   background-color: var(--green);
 }
 
-.minion-buttons.dark-mode button.selected {
+.minion-buttons.light-mode button.selected {
   background-color: var (--button-select-dark);
   color: var(--black);
 }
 
-.minion-buttons.dark-mode button.active {
+.minion-buttons.light-mode button.active {
   background-color: var(--green);
   color: var(--black);
 }
 
-.toggle-button.dark-mode {
+.toggle-button.light-mode {
   background-color: var(--button-dark);
   border: 1px solid var(--button-dark);
 }
 
-h1.dark-mode {
+h1.light-mode {
   text-align: center;
   color: var(--text-dark);
 }
 
-h2.dark-mode {
+h2.light-mode {
   text-align: center;
   color: var(--text-dark);
 }
 
-h3.dark-mode {
+h3.light-mode {
   text-align: center;
   color: var(--text-dark);
 }
 
-label.dark-mode {
+label.light-mode {
   color: var(--text-dark);
 }
 
-/*.tab button.dark-mode {
+/*.tab button.light-mode {
   background-color: var(--text-dark);
   border: 1px solid var(--button-dark);
 }*/
@@ -287,7 +287,7 @@ button:hover {
   font-size: 30px;
   color: var(--text);
 }
-.result.dark-mode {
+.result.light-mode {
   font-size: 30px;
   color: var(--text-dark);
 }
@@ -429,6 +429,6 @@ input[type="range"]::-moz-range-thumb {
 .roman-numerals span:nth-child(10) { left: 90%; }  /* X */
 .roman-numerals span:nth-child(11) { left: 100%; } /* XI */
 
-.roman-numerals.dark-mode span {
+.roman-numerals.light-mode span {
     color: var(--text-dark);
 }

@@ -1,10 +1,10 @@
-document.getElementById('dark-mode-toggle').addEventListener('click', (event) => {
+document.getElementById('light-mode-toggle').addEventListener('click', (event) => {
     const button = event.target;
-    const isDarkMode = document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.toggle('light-mode');
     button.textContent = isDarkMode ? '🌑' : '☀️';
-    button.classList.toggle('dark-mode', isDarkMode);
+    button.classList.toggle('light-mode', isDarkMode);
     document.querySelectorAll('.container, button, .buttonselect, .tab button, .minion-buttons button, .toggle-button, h1, h2, h3, label, .tab, .result, .roman-numerals, .roman-numerals span')
-        .forEach(el => el.classList.toggle('dark-mode', isDarkMode));
+        .forEach(el => el.classList.toggle('light-mode', isDarkMode));
 });
 
 
