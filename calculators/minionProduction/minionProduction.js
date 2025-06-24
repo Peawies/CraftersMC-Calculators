@@ -697,7 +697,7 @@ function calculateProduction() {
     for (let item in totalProduction) {
       const baseAmount = totalProduction[item];
       const enchantedName = enchantedNameMapping[item] || `Enchanted ${item}`;
-      const divisionFactor = item === "String" ? 192 : item === "Leather" ? 576 : 160;
+      const divisionFactor = item === "String" ? 192 : item === "Leather" ? 576 : item === "Bread" ? 60 : item === "Hay Bale" ? 144 : 160;
       const enchantedAmount = baseAmount / divisionFactor;
 
       if (enchantedAmount > 0) {
