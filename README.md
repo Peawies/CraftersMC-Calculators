@@ -1,3 +1,6 @@
+# Archived project
+This GitHub project has been archived. You can find some of the tools listed here at their respective pages in CraftersMC Wiki.
+
 # CraftersMC Calculators
 This is a web-based tool that helps players to calculate various things for CraftersMC SkyBlock.
 
@@ -17,3 +20,4 @@ This is a web-based tool that helps players to calculate various things for Craf
 - Improved *Minion Production Calculator* interface by [Ndr](https://github.com/notndricim), [Techon](https://github.com/TechonVS)
 
 [CraftersMC Calculators](https://github.com/Peawies/CraftersMC-Calculators) © 2025 by [Peaw](https://github.com/Peawies) is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1).
+
